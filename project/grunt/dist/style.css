@@ -1,0 +1,19 @@
+/*Processed by SNA Labs on 26/7/2022 @ 17:26:16*/
+body {
+    background-color: black;
+  }
+h1 {
+    color: orange;
+    text-align: right;
+  }
+
+p {
+    font-family: verdana;
+    font-size: 20px;
+    color: red;
+  }
+h2 {
+    color:brown;
+    font-size: 30px;
+}
+/*# sourceMappingURL=style.css.map */
