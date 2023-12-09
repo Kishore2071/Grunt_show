@@ -1,5 +1,5 @@
-/*Processed by SNA Labs on 26/7/2022 @ 17:26:16*/
-$('p').html("This is run by admin.js SNA");
+/*Processed by SNA Labs on 29/7/2022 @ 1:36:9*/
+$('p').html("This is run by admin.j SNA");
 $(document).ready(function(){
     alert("All set");
 })

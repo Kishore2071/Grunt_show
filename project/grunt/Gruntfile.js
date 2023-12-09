@@ -26,19 +26,38 @@ module.exports = function(grunt){
                     '../js/**/*.js'
                 ],
                 dest: 'dist/app.js'
-            }
+            },
+            scss: {
+				src: ['../scss/**/*.scss'],
+				dest: 'dist/style.scss',
+			}
         },
         cssmin: {
             options: {
                 mergeIntoShorthands: false,
                 roundingPrecision: -1
             },
-            target: {
-                files: {
-                    '../../htdocs/css/style.css': ['dist/style.css']
-                }
-            }
+            css: {
+				files: {
+					'../../htdocs/css/style.css': ['dist/style.css'],         
+				}
+			},
+			scss: {
+				files: {
+					'../../htdocs/css/app.css': ['../../htdocs/css/app.css'],
+				}
+			}
         },
+        sass: {
+			dist: {
+				options: {
+					style: 'expanded'
+				},
+				files: {                    
+					'../../htdocs/css/app.css': 'dist/style.scss',
+				}
+			}
+		},
         uglify: {
             minify: {
                 options: {
@@ -81,32 +100,44 @@ module.exports = function(grunt){
             }
         },
         watch: {
-            css: {
-                files: [
-                    '../css/**/*.css',
-                ],
-                tasks: ['concat:css', 'cssmin'],
-                options: {
-                    spawn: false,
-                },
-            },
-            js: {
-                files: [
-                    '../js/**/*.js'
-                ],
-                tasks: ['concat:js', 'uglify', 'obfuscator'],
-                options: {
-                    spawn: false,
-                },
-            },
-        },
+			css: {
+				files: [
+					'../css/**/*.css',
+				],
+				tasks: ['concat:css', 'cssmin:css'],
+				options: {
+					spawn: false,
+				},
+			},
+			js: {
+				files: [        
+					'../js/**/*.js'
+				],
+				tasks: ['concat:js', 'uglify', 'obfuscator'],
+				options: {
+					spawn: false,
+				},
+			},
+			scss: {
+				files: [        
+					'../scss/**/*.scss'
+				],
+				tasks: ['concat:scss','sass', 'cssmin:scss'],
+				options: {
+					spawn: false,
+				},
+			}
+		},
     });
     
-    grunt.loadNpmTasks('grunt-contrib-obfuscator');
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.registerTask('default', ['copy', 'concat', 'cssmin', 'uglify','obfuscator', 'watch']);
+	grunt.loadNpmTasks('grunt-contrib-obfuscator');
+	grunt.loadNpmTasks('grunt-contrib-copy');  
+	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.registerTask('css',['concat:css','cssmin','sass']);    
+	grunt.registerTask('js',['concat:js','uglify','obfuscator']);    
+	grunt.registerTask('default',['copy','concat','cssmin:css','sass','cssmin:scss','uglify','obfuscator','watch']);   
 };

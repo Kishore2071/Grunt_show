@@ -1,1 +1,1 @@
-$('p').html("This is run by admin.js SNA");
+$('p').html("This is run by admin.j SNA");

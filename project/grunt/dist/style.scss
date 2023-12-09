@@ -1,0 +1,39 @@
+/*Processed by SNA Labs on 27/7/2022 @ 15:6:5*/
+
+//  .indev h1 {
+//   color: green
+// }
+
+// .indev p {
+//   color:darkcyan
+// }
+
+// .indev .inindev h1 {
+//   color: white
+// }
+
+// .indev .inindev p {
+//   color: yellow
+// }
+
+.indev {
+    h1 {
+        color: green
+    }
+    p {
+        color:darkcyan
+    }
+
+    .inindev {
+        h1 {
+            color: green
+        }
+        p {
+            color:darkcyan
+        }
+        a {
+            color: yellow
+        }
+    }
+}
+//# sourceMappingURL=style.scss.map

@@ -1,11 +1,27 @@
-/*Processed by SNA Labs on 26/7/2022 @ 17:26:16*/
+/*Processed by SNA Labs on 29/7/2022 @ 1:36:9*/
 body {
     background-color: black;
-  }
+}
 h1 {
     color: orange;
     text-align: right;
   }
+
+/* .indev h1 {
+  color: green
+}
+
+.indev p {
+  color:darkcyan
+}
+
+.indev .inindev h1 {
+  color: white
+}
+
+.indev .inindev p {
+  color: yellow
+} */
 
 p {
     font-family: verdana;
